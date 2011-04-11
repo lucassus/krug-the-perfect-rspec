@@ -1,0 +1,11 @@
+{
+  "name": "The perfect RSpec",
+  "description": "RSpec good practices",
+  "sections": [
+    {"section": "intro"},
+    {"section": "good_practices"},
+    {"section": "mailer"},
+    {"section": "model"},
+    {"section": "controller"}
+  ]
+}

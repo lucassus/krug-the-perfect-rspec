@@ -4,6 +4,7 @@
   "sections": [
     {"section": "intro"},
     {"section": "good_practices"},
+    {"section": "good_practices_fast"},
     {"section": "mailer"},
     {"section": "model"},
     {"section": "controller"},

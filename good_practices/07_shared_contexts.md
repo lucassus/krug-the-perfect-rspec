@@ -1,16 +1,27 @@
-  class Subscription < ActiveRecord::Base
-    STATUS_ACTIVE = 'active'
-    STATUS_CANCELLED = 'cancelled'
+!SLIDE smaller
 
-    def self.with_status(*statuses)
-      where("status IN (?)", statuses)
+# Shared context
+
+    @@@ ruby
+    class Subscription < ActiveRecord::Base
+      STATUS_ACTIVE = 'active'
+      STATUS_CANCELLED = 'cancelled'
+
+      def self.with_status(*statuses)
+        where("status IN (?)", statuses)
+      end
     end
-  end
 
-    describe "#with_status" do
+!SLIDE very-small
+
+# Shared context
+
+    @@@ ruby
+    describe Subscription, "#with_status" do
       let!(:active_subscription) { FactoryGirl.create(:active_subscription) }
       let!(:cancelled_subscription) { FactoryGirl.create(:cancelled_subscription) }
 
+      # define shared context
       def self.when_status(*statuses, &ctx_block)
         ctx = context "when status is #{statuses.join('or ')}" do
           let(:result) { Subscription.with_status(*statuses) }

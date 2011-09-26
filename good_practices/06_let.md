@@ -34,7 +34,7 @@
         post :create, :product => { 'name' => 'Test' }
       end
 
-      context "with valid attributes" do
+      context "on success" do
         let(:success) { true }
 
         it { should set_the_flash }
@@ -42,7 +42,7 @@
         it { should redirect_to(admin_product_path(product)) }
       end
 
-      context "with invalid attributes" do
+      context "on failure" do
         let(:success) { false }
 
         it { should_not set_the_flash }

@@ -18,6 +18,8 @@
       end
     end
 
+[Rails Best Practices](http://www.codeschool.com/courses/rails-best-practices)
+
 !SLIDE smaller
 
 # Solution
@@ -62,7 +64,8 @@
 # Solution
 
 * Always write functional tests!
-* Cumber, request specs, steak etc.
+* Once again: always write functional tests!
+  * Cumber, request specs, steak etc.
 * ...or stub methods more carefully?
 
 !SLIDE smaller

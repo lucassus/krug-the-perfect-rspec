@@ -3,11 +3,12 @@
 # Good practices
 ## Fast specs
 
-!SLIDE title bullets
+!SLIDE small title bullets
 
 # Fast specs, how to?
 
-* often controllers specs are not unit tests
-* do not test full Rails stack
-* mock models in controller test
-* turn off view rendering
+* often tests for controllers are in fact functional tests
+* you should not test full Rails stack specs
+* stub models in your specs
+* turn off view rendering in controllers specs
+* use tools for acceptance testing

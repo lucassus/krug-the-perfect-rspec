@@ -17,4 +17,4 @@
       it { should assign_to(:users) }
     end
 
-## ..more code samples
+## ..and more code samples

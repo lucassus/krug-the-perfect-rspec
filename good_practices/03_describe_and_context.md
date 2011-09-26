@@ -40,7 +40,7 @@
 
     describe SessionsController do
       describe '#create' do
-        context 'when create are valid'
-        context 'when create are not valid'
+        context 'on success'
+        context 'on failure'
       end
     end

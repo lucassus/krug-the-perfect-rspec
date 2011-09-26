@@ -74,3 +74,5 @@
     describe BlogPost do
       it { should validate_presence_of(:title) }
     end
+
+[more examples](http://rdoc.info/github/thoughtbot/shoulda-matchers/master/frames)

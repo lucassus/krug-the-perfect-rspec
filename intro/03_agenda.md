@@ -1,6 +1,6 @@
-!SLIDE title subsection bullets incremental
+!SLIDE title subsection bullets
 
-# Agenda #
+# Agenda
 
 * Why don't you like RSpec?
 * Good practices (clean specs)

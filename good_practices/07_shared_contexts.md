@@ -12,14 +12,14 @@
       end
     end
 
-!SLIDE very-small
+!SLIDE smaller
 
-# Shared context
+# Shared context, example
 
     @@@ ruby
     describe Subscription, "#with_status" do
-      let!(:active_subscription) { FactoryGirl.create(:active_subscription) }
-      let!(:cancelled_subscription) { FactoryGirl.create(:cancelled_subscription) }
+      let!(:active) { FactoryGirl.create(:active_subscription) }
+      let!(:cancelled) { FactoryGirl.create(:cancelled_subscription) }
 
       # define shared context
       def self.when_status(*statuses, &ctx_block)
@@ -31,12 +31,13 @@
 
       when_status(Subscription::STATUS_ACTIVE) do
         specify { result.should have(1).item }
-        specify { result.should include(active_subscription) }
+        specify { result.should include(active) }
       end
 
-      when_status(Subscription::STATUS_ACTIVE, Subscription::STATUS_CANCELLED) do
+      when_status(Subscription::STATUS_ACTIVE,
+          Subscription::STATUS_CANCELLED) do
         specify { result.should have(2).items }
-        specify { result.should include(active_subscription) }
-        specify { result.should include(cancelled_subscription) }
+        specify { result.should include(active) }
+        specify { result.should include(cancelled) }
       end
     end

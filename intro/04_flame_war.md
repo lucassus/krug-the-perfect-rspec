@@ -1,6 +1,6 @@
-!SLIDE title subsection bullets incremental bullets incremental
+!SLIDE title subsection bullets
 
-# Why you don't like RSpec? #
+# Why you don't like RSpec?
 
 * ..yet another DSL?
 * ..difficult to learn?
@@ -9,13 +9,13 @@
 
 !SLIDE small
 
-# José Valim, DSL or no DSL
+# DSL or no DSL
 
     @@@ ruby
     # RSpec
     describe User do
       it "should be valid" do
-        Factory.build(:user).should be_valid
+        FactoryGirl.build(:user).should be_valid
       end
     end
 
@@ -24,7 +24,7 @@
     # TestUnit
     class UserTest < Test::Unit::Case
       def test_user_validity
-        assert Factory.build(:user).valid?
+        assert FactoryGirl.build(:user).valid?
       end
     end
 

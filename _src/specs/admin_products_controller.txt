@@ -1,0 +1,58 @@
+Admin::ProductsController
+  on GET to :index
+    should respond with 200
+    should not set the flash
+    should render template :index
+    should assign @products
+  on GET to :show
+    should find the product
+    should find product's subscriptions
+    should respond with 200
+    should not set the flash
+    should render template :show
+    should assign @product
+  on GET to :new
+    should create a new product instance
+    should respond with 200
+    should not set the flash
+    should render template :new
+    should assign @product
+  on GET to :edit
+    should find the product
+    should respond with 200
+    should not set the flash
+    should render template :edit
+    should assign @product (FAILED - 16)
+  on POST to :create
+    should create a new product instance
+    should try to save a product
+    with valid attributes
+      should assign @product
+      should set the flash
+      should respond with 300..399
+      should redirect to "/admin/products/1444"
+    with invalid attributes
+      should assign @product
+      should not set the flash
+      should respond with 200
+      should render template :new
+  on PUT to :update
+    should find a product
+    should try to save a product
+    with valid attributes
+      should assign @product (FAILED - 17)
+      should set the flash
+      should respond with 300..399
+      should redirect to "/admin/products/1454"
+    with invalid attributes
+      should assign @product (FAILED - 18)
+      should not set the flash
+      should respond with 200
+      should render template :edit
+  on DELETE do :destroy
+    should find the product
+    should destroy the product
+    should assign @product (FAILED - 19)
+    should set the flash
+    should respond with 300..399
+    should redirect to "/admin/products"

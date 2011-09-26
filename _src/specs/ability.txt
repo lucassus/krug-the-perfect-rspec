@@ -1,0 +1,21 @@
+Ability
+  anonymous user
+    should not have the ability to read Product
+    should not have the ability to manage Subscription
+    should not have the ability to read Subscription
+    should not have the ability to create Subscription
+  regular user
+    should not have the ability to manage all
+    Subscription
+      should have the ability to read Product
+      should have the ability to create Subscription
+      on own subcription
+        should have the ability to read an instance of Subscription
+        should have the ability to update an instance of Subscription
+        should have the ability to cancel an instance of Subscription
+      on subscription created by other user
+        should not have the ability to read an instance of Subscription
+        should not have the ability to update an instance of Subscription
+        should not have the ability to cancel an instance of Subscription
+  admin user
+    should have the ability to manage all

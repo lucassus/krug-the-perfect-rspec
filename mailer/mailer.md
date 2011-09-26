@@ -19,7 +19,7 @@
       end
     end
 
-!SLIDE smaller
+!SLIDE very-small
 
 # Spec for mailer, bad example
 
@@ -28,8 +28,10 @@
       describe "#confirm" do
         before :all do
           @order = Factory(:order, :email => 'some@email.com')
-          Factory(:line_item, :order => @order, :quantity => 1, :product => Factory(:product, :name => 'ThinkPad T410s'))
-          Factory(:line_item, :order => @order, :quantity => 2, :product => Factory(:product, :name => 'Amazon Kindle 3G'))
+          FactoryGirl.create(:line_item, :order => @order, :quantity => 1,
+            :product => Factory(:product, :name => 'ThinkPad T410s'))
+          FactoryGirl.create(:line_item, :order => @order, :quantity => 2,
+            :product => Factory(:product, :name => 'Amazon Kindle 3G'))
         end
 
         it "should send an email successfully" do
@@ -40,7 +42,7 @@
           mail.to.should == ['some@email.com']
     # ...to be continued
 
-!SLIDE smaller
+!SLIDE very-small
 
 #  Bad mailer example continue...
 
@@ -66,7 +68,7 @@
       end
     end
 
-!SLIDE smaller
+!SLIDE very-small
 
 # Better example
 
@@ -75,26 +77,35 @@
       describe "#confirm" do
         let(:order) { Factory(:order, :email => 'client@email.com') }
         before :all do
-          Factory(:line_item, :order => order, :quantity => 1, :product => Factory(:product, :name => 'ThinkPad T410s'))
-          Factory(:line_item, :order => order, :quantity => 2, :product => Factory(:product, :name => 'Amazon Kindle 3G'))
+          Factory(:line_item, :order => order, :quantity => 1,
+            :product => Factory(:product, :name => 'ThinkPad T410s'))
+          Factory(:line_item, :order => order, :quantity => 2,
+            :product => Factory(:product, :name => 'Amazon Kindle 3G'))
         end
 
         it "should render an email successfully" do
           expect { OrderMailer.confirm(order) }.to_not raise_error
         end
 
-        describe :mail do
+        describe "email" do
           let(:mail) { OrderMailer.confirm(order) }
           subject { mail }
 
           its(:subject) { should == 'Order confirmation' }
           its(:from) { should == ['support@store.com'] }
-          it("should be sent to the consuner") do
+          it("should be sent to the consumer") do
             subject.to.should == ['client@email.com']
           end
 
+         # see next slide
+
+!SLIDE very-small
+
+# Better example, cnt.
+
+    @@@ ruby
           # Test the body of the sent email contains what we expect it to
-          describe :body do
+          describe "email's body" do
             subject { mail.body.encoded }
 
             it { should include('Dear Customer') }
@@ -110,34 +121,33 @@
             it "should include total price" do
               subject.should include("Total price: $#{order.total_price}")
             end
+          end
 
-            describe :attachments do
-              subject { mail.attachments }
+          describe "attachments" do
+            subject { mail.attachments }
 
-              it { should have(1).item }
+            it { should have(1).item }
 
-              it "should contain a pdf file with an invoice" do
-                subject.first.filename.should == "Invoice-#{order.number}.pdf"
-              end
+            it "should contain a pdf file with an invoice" do
+              subject.first.filename.should == "Invoice-#{order.number}.pdf"
             end
           end
 
           describe "#deliver" do
             it "should add the email to the delivery queue" do
-              expect { subject.deliver }.to change(ActionMailer::Base.deliveries, :size).by(1)
+              expect do
+                subject.deliver
+              end.to change(ActionMailer::Base.deliveries, :size).by(1)
             end
           end
         end
       end
     end
 
-!SLIDE
-
-# Compare test outputs
-
 !SLIDE smaller
 
-# Bad mailer example, spec output
+# Compare test outputs
+## Bad mailer example, spec output
 
     $ rspec spec/mailers/order_mailer_spec.rb --format documentation
 
@@ -145,7 +155,7 @@
       #confirm
         should sent an email successfully
 
-!SLIDE smaller
+!SLIDE specdoc
 
 # Good example, spec output
 

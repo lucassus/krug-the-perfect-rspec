@@ -1,0 +1,28 @@
+Product
+  should have :product factory
+  should have many subscriptions
+  db table
+    should have db column named service_name of type string of null false
+    should have db column named price of type integer of null false
+    should have db column named more_information_url of type string
+    should have db column named active of type boolean of default true of null false
+    should have a  index on columns price
+    should have a  index on columns active
+    should have a  index on columns created_at
+  scopes
+    #active
+      should == {:active=>true}
+    #inactive
+      should == {:active=>false}
+  validations
+    should require service_name to be set
+    should require price to be set
+    should only allow numeric values for price
+    #more_information_url
+      is not valid for "invalid url"
+      is not valid for "ftp://yet.another.invalid"
+      is not valid for "667"
+      is valid for "http://google.com"
+      is valid for "http://facebook.com"
+      is valid for "http://gazeta.pl"
+      is valid when it's empty

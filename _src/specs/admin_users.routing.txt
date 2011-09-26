@@ -1,0 +1,23 @@
+Admin::UsersController routing
+  admin_users_path
+    should == "/admin/users"
+    on GET
+      should route to "admin/users#index"
+    on POST
+      should route to "admin/users#create"
+  admin_user_path
+    should == "/admin/users/1"
+    on GET
+      should route to "admin/users#show" and {:id=>"1", :controller=>"admin/users", :action=>"show"}
+    on PUT
+      should route to "admin/users#update" and {:id=>"1", :controller=>"admin/users", :action=>"update"}
+    on DELETE
+      should route to "admin/users#destroy" and {:id=>"1", :controller=>"admin/users", :action=>"destroy"}
+  new_admin_user_path
+    should == "/admin/users/new"
+    on GET
+      should route to "admin/users#new"
+  edit_admin_user_path
+    should == "/admin/users/1/edit"
+    on GET
+      should route to "admin/users#edit" and {:id=>"1", :controller=>"admin/users", :action=>"edit"}

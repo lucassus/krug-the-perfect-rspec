@@ -6,7 +6,7 @@
     describe User do
       subject { Factory(:user) }
 
-      describe "corresponding database table" do
+      describe "database table" do
         it do
           should have_db_column('email').of_type(:string).
             with_options(:null => false)

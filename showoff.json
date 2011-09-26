@@ -7,6 +7,6 @@
     {"section": "mailer"},
     {"section": "model"},
     {"section": "controller"},
-    {"section": "stories"}
+    {"section": "questions"}
   ]
 }

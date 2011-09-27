@@ -1,0 +1,12 @@
+#footer {
+  z-index: 1000;
+}
+
+.content.specdoc {
+  font-family: monospace;
+  font-size: 50%;
+}
+
+.content.very-small {
+  font-size: 50%;
+}

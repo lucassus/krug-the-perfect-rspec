@@ -7,6 +7,8 @@
 * ..WTF is `subject`?
 * ..WTF is `let` or `let!`?
 
+.notes Next: DSL or no DSL
+
 !SLIDE small
 
 # DSL or no DSL
@@ -27,6 +29,8 @@
         assert FactoryGirl.build(:user).valid?
       end
     end
+
+.notes Next: Better rspec example
 
 [José Valim, DSL or no DSL](http://blog.plataformatec.com.br/2010/06/dsl-or-nodsl-at-euruko-2010)
 

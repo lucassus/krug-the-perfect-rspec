@@ -41,3 +41,6 @@
         specify { result.should include(cancelled) }
       end
     end
+
+.notes Next: good practices (fast specs)
+

@@ -19,6 +19,8 @@
       end
     end
 
+.notes Next: tricks with let
+
 !SLIDE smaller
 
 # Tricks with let
@@ -50,3 +52,6 @@
         it { should render_template(:new) }
       end
     end
+
+.notes Next: shared context
+

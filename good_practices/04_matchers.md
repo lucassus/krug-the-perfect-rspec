@@ -26,6 +26,8 @@
 
 [more in RSpec documentation](https://www.relishapp.com/rspec/rspec-expectations)
 
+.notes Next: should matchers
+
 !SLIDE bullets
 
 # [Use shoulda matchers](http://robots.thoughtbot.com/post/159805987/speculating-with-shoulda)
@@ -33,6 +35,8 @@
 * many matchers now available in RSpec
 * validate\_presence\_of, validate\_format\_of, ensure\_length\_of, have\_many...
 * just add a shoulda gem dependency
+
+.notes Next: shoulda example
 
 !SLIDE smaller
 
@@ -57,22 +61,7 @@
       it { should allow_value("test@example.com").for(:email) }
     end
 
-!SLIDE small
-
-# Use shoulda, another example
-
-    @@@ ruby
-    it 'should validate presence of title' do
-      lambda do
-        p = BlogPost.create(:title => nil, :body => 'foo...')
-        p.errors.on(:title).should_not be_nil
-      end.should_not change { BlogPost.count }
-    end
-
-    # vs.
-
-    describe BlogPost do
-      it { should validate_presence_of(:title) }
-    end
-
 [more examples](http://rdoc.info/github/thoughtbot/shoulda-matchers/master/frames)
+
+.notes Next: it expects one thing
+

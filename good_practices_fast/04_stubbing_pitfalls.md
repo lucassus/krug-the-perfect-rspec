@@ -87,3 +87,6 @@
 [A Paperclip Refactoring Tale: Part One: Dependency Injection](http://robots.thoughtbot.com/post/9888374844/a-paperclip-refactoring-tale-part-one-dependency)
 
 [The Secret to Rails OO Design](http://blog.steveklabnik.com/2011/09/06/the-secret-to-rails-oo-design.html)
+
+[Extracting Domain Models: A Practical Exampl](http://blog.steveklabnik.com/2011/09/22/extracting-domain-models-a-practical-example.html)
+

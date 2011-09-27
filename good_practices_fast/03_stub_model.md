@@ -14,3 +14,6 @@
 [mock_model](https://www.relishapp.com/rspec/rspec-rails/docs/mocks/mock-model) |
 [stub_mode](https://www.relishapp.com/rspec/rspec-rails/docs/mocks/stub-model) |
 [source](https://github.com/rspec/rspec-rails/blob/master/lib/rspec/rails/mocks.rb)
+
+.notes Next: stubbing pain
+

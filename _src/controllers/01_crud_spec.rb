@@ -11,6 +11,7 @@ describe Admin::ProductsController do
 
   describe "on GET to :index" do
     before do
+      # Product.order('created_at').page(params[:page]).per(10)
       Product.stub_chain(:order, :page, :per).and_return([])
       get :index
     end

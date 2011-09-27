@@ -15,11 +15,12 @@
     # RSpec
     describe User do
       subject { FactoryGirl.build(:user) }
-
       it { should be_valid }
     end
 
 ## ..and the question is.. who's the winner?
+
+.notes Next: event better espec example
 
 !SLIDE smaller
 
@@ -44,6 +45,8 @@
       # ... an so on
     end
 
+.notes Next: tests output
+
 ## Imagine how many lines of code you will have to write in bare TestUnit...
 
 !SLIDE small
@@ -67,3 +70,6 @@
         when login is set to 'vader'
           login
             should == 'vader'
+
+.notes Next: Good practices (clean specs)
+

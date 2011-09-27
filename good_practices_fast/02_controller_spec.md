@@ -17,4 +17,7 @@
       it { should assign_to(:users) }
     end
 
-## ..and more code samples
+## (and more code samples)
+
+.notes Next: mock_model vs. stub_model
+
